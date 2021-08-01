@@ -8,7 +8,54 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
-    #myVideo {
+/*for cards*/
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/*for video*/
+#myVideo {
   position: relative;
   right: 0;
   bottom: 0;
@@ -93,5 +140,51 @@
         <!-- Use a button to pause/play the video with JavaScript -->
         <button id="myBtn" onclick="myFunction()">Pause</button>
       </div>
+      <script>
+        // Get the video
+        var video = document.getElementById("myVideo");
+        // Get the button
+        var btn = document.getElementById("myBtn");
+        // Pause and play the video, and change the button text
+        function myFunction() {
+          if (video.paused) {
+            video.play();
+            btn.innerHTML = "Pause";
+          } else {
+            video.pause();
+            btn.innerHTML = "Play";
+          }
+        }
+        </script>
+        <!-- CARDS SECTION -->
+        <div class="card-container">
+            <!-- CARD 1 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="G:\Development\Web Dev front\Profile Website\videosandimages\python.jpg" alt="Avatar" style="width:300px;height:300px;">
+                  </div>
+                  <div class="flip-card-back">
+                    <h1> Python </h1>
+                    <p> Intermediate coder </p>
+                    <p> Can create coding solutions for datastructure and algorithm related problems </p>
+                  </div>
+                </div>
+            </div>
+            <!-- CARD 1 -->
+            div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="G:\Development\Web Dev front\Profile Website\videosandimages\python.jpg" alt="Avatar" style="width:300px;height:300px;">
+                  </div>
+                  <div class="flip-card-back">
+                    <h1> Python </h1>
+                    <p> Intermediate coder </p>
+                    <p> Can create coding solutions for datastructure and algorithm related problems </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <p>HELLO</p>
 </body>
 </html>
